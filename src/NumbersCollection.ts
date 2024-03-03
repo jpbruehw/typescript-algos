@@ -1,5 +1,10 @@
-export class NumbersCollection {
-  constructor(public data: number[]) {}
+import { Sorter } from "./Sorter";
+
+export class NumbersCollection extends Sorter {
+  constructor(public data: number[]) {
+    // we need to call super on from the parent
+    super();
+  }
 
   /** Create getter method to find the length
    *  we need to know this for the for loops
@@ -19,6 +24,6 @@ export class NumbersCollection {
   swap(leftIndex: number, rightIndex: number): void {
     const leftHand = this.data[leftIndex];
     this.data[leftIndex] = this.data[rightIndex];
-    this.data[(rightIndex = leftHand)];
+    this.data[rightIndex] = leftHand;
   }
 }
